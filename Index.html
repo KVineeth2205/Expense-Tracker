@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Expenses Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .input-group {
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #218838;
+        }
+        .result {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Monthly Expenses Calculator</h2>
+        <div class="input-group">
+            <label for="pocket-money">Pocket Money Received:</label>
+            <input type="number" id="pocket-money" placeholder="Enter amount">
+        </div>
+        <div class="input-group">
+            <label for="rent">Gym Fees :</label>
+            <input type="number" id="rent" placeholder="Enter amount">
+        </div>
+        <div class="input-group">
+            <label for="food">Food:</label>
+            <input type="number" id="food" placeholder="Enter amount">
+        </div>
+        <div class="input-group">
+            <label for="transport">Supplements expenses:</label>
+            <input type="number" id="transport" placeholder="Enter amount">
+        </div>
+        <div class="input-group">
+            <label for="others">Others:</label>
+            <input type="number" id="others" placeholder="Enter amount">
+        </div>
+        <div class="input-group">
+            <label for="Shopping">Shopping:</label>
+            <input type="number" id="others" placeholder="Enter amount">
+        </div>
+        <button onclick="calculateTotal()">Calculate</button>
+        <div class="result" id="total"></div>
+        <div class="result" id="remaining"></div>
+    </div>
+
+    <script>
+        function calculateTotal() {
+            let pocketMoney = parseFloat(document.getElementById('pocket-money').value) || 0;
+            let rent = parseFloat(document.getElementById('rent').value) || 0;
+            let food = parseFloat(document.getElementById('food').value) || 0;
+            let transport = parseFloat(document.getElementById('transport').value) || 0;
+            let others = parseFloat(document.getElementById('others').value) || 0;
+            
+            let totalExpenses = rent + food + transport + others;
+            let remainingBalance = pocketMoney - totalExpenses;
+            
+            document.getElementById('total').innerText = "Total Monthly Expenses: Rupees" + totalExpenses.toFixed(2);
+            document.getElementById('remaining').innerText = "Remaining Balance: Rupees" + remainingBalance.toFixed(2);
+        }
+    </script>
+</body>
+</html>
